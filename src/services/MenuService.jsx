@@ -1,8 +1,6 @@
 import axios from 'axios';
 const config = require('./config.json');
 
-const ENDPOINT_BASE = "not implemented";
-
 async function getAllMenuItems() {
     const response = await axios.get(
         config.menuApi.baseUrl + 
@@ -18,4 +16,4 @@ async function getMenuItemByID(id) {
         id
     );
     return response.data;
-}
+} //hello mine turtle

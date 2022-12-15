@@ -1,6 +1,6 @@
 {
     "menuApi": {
-        "baseUrl": "NOT_IMPLEMENTED",
+        "baseUrl": "https://localhost:44394",
         "endpoints": {
             "getAllMenuItems": "/api/MenuItem",
             "getMenuItemById": "/api/MenuItem/"
