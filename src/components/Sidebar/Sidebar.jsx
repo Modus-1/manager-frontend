@@ -1,30 +1,32 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, Router } from "react-router-dom";
 import "./Sidebar.css";
 
 export default function Sidebar() {
   return (
     <div className="sidebar-container">
-      <div className="sidebar-item">
-        <a href="menu-item-list">
-          <strong>menu item list</strong>
-        </a>
-      </div>
-      <div className="sidebar-item">
-        <a href="ingredient-list">
-          <strong>ingredient list</strong>
-        </a>
-      </div>
+      <a href="menu-item-list">
+        <div className="sidebar-item">
+          <strong className="sidebar-item-text">menu item list</strong>
+        </div>
+      </a>
 
-      <div className="sidebar-item">
-        <a href="add-menu-item">
-          <strong>Add menu items</strong>
-        </a>
-      </div>
-      <div className="sidebar-item">
-        <a href="add-ingredient">
-          <strong>Add Ingredients</strong>
-        </a>
-      </div>
+      <a href="ingredient-list">
+        <div className="sidebar-item">
+          <strong className="sidebar-item-text">ingredient list</strong>
+        </div>
+      </a>
+
+      <a href="add-menu-item">
+        <div className="sidebar-item">
+          <strong className="sidebar-item-text">Add menu items</strong>
+        </div>
+      </a>
+
+      <a href="add-ingredient">
+        <div className="sidebar-item">
+          <strong className="sidebar-item-text">Add Ingredients</strong>
+        </div>
+      </a>
     </div>
   );
 }
