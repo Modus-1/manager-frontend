@@ -1,0 +1,15 @@
+.sidebar-container{
+display:flex;
+flex-direction: column;
+width: 15em;
+outline: black solid 2px;
+padding-bottom: 100%;
+}
+
+.sidebar-item{
+    padding-top:1em;
+    padding-bottom: 1em;
+
+    border-bottom: solid 2px;
+
+}
