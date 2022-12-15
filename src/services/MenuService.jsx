@@ -16,4 +16,6 @@ async function getMenuItemByID(id) {
         id
     );
     return response.data;
-} //hello mine turtle
+}
+
+export { getAllMenuItems, getMenuItemByID }
