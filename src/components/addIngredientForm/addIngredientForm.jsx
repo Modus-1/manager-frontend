@@ -1,5 +1,7 @@
 export default function AddIngredientForm(){
     return(
-        <div></div>
+        <div>
+            <p>add ingredient form</p>
+        </div>
     )
 }
