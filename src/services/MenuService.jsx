@@ -18,4 +18,12 @@ async function getMenuItemByID(id) {
     return response.data;
 }
 
-export { getAllMenuItems, getMenuItemByID }
+async function getAllCategories() {
+    const response = await axios.get(
+        config.menuApi.baseUrl +
+        config.menuApi.endpoints.getAllCategories
+    );
+    return response.data;
+}
+
+export { getAllMenuItems, getMenuItemByID, getAllCategories }
