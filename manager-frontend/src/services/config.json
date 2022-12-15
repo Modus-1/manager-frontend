@@ -1,0 +1,9 @@
+{
+    "menuApi": {
+        "baseUrl": "NOT_IMPLEMENTED",
+        "endpoints": {
+            "getAllMenuItems": "/api/MenuItem",
+            "getMenuItemById": "/api/MenuItem/"
+        }
+    }
+}
