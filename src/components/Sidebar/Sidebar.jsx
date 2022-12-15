@@ -6,19 +6,19 @@ export default function Sidebar() {
     <div className="sidebar-container">
       <a href="menu-item-list">
         <div className="sidebar-item">
-          <strong className="sidebar-item-text">menu item list</strong>
+          <strong className="sidebar-item-text">Menu Item List</strong>
         </div>
       </a>
 
       <a href="ingredient-list">
         <div className="sidebar-item">
-          <strong className="sidebar-item-text">ingredient list</strong>
+          <strong className="sidebar-item-text">Ingredient List</strong>
         </div>
       </a>
 
       <a href="add-menu-item">
         <div className="sidebar-item">
-          <strong className="sidebar-item-text">Add menu items</strong>
+          <strong className="sidebar-item-text">Add Menu Items</strong>
         </div>
       </a>
 
