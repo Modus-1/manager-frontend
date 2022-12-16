@@ -1,0 +1,57 @@
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    border: 1px solid rgb(47, 137, 255);
+    border-radius: .1em;
+    gap: 0.5em;
+}
+
+.detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+.detail > label {
+    margin-right: auto;
+}
+
+.detail > input, .detail > textarea, .detail > select {
+    width: 50%;
+    resize: none;
+    font-family: inherit;
+    padding-left: .5em;
+}
+
+.detail > textarea {
+    width: 50.3%;
+}
+
+.detail > select {
+    width: 51.7%;
+}
+
+.detail > img {
+    width: 5em;
+    aspect-ratio: 1 / 1;
+    outline: 1px solid rgba(0, 0, 255, .5);
+}
+
+.detail > button {
+    background-color: rgba(0, 0, 0, .03);
+    border: none;
+    cursor: pointer;
+    height: 2.3em;
+    width: 2.3em;
+    border-radius: 50%;
+}
+
+.confirmation {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+}
