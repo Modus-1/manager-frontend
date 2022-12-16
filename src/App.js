@@ -12,17 +12,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <SideBar></SideBar>
+      <SideBar className="sidebar"></SideBar>
 
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MenuItemListPage/>}></Route>
-
-          <Route path="add-ingredient-form" element={<AddIngredientPage/>}></Route>
-          <Route path="add-menu-item-form" element={<AddMenuItemPage/>}></Route>
-          <Route path="ingredient-list" element={<IngredientListPage/>}></Route>
           <Route path="menu-item-list" element={<MenuItemListPage/>}></Route>
-
+          <Route path="ingredient-list" element={<IngredientListPage/>}></Route>
+          <Route path="add-menu-item" element={<AddMenuItemPage/>}></Route>
+          <Route path="add-ingredient" element={<AddIngredientPage/>}></Route>
           <Route path="*" element={<div>404 Page not found</div>} />
         </Routes>
       </BrowserRouter>
