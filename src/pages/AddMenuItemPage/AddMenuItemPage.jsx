@@ -1,7 +1,7 @@
-export default function AddMenuItemForm(){
+export default function AddMenuItemPage(){
     return(
         <div>
-            <p>add menu item form</p>
+            <p>add menu item page</p>
         </div>
     )
 }

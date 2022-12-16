@@ -1,7 +1,7 @@
-export default function AddIngredientForm(){
+export default function AddIngredientPage(){
     return(
         <div>
-            <p>add ingredient form</p>
+            <p>add ingredient page</p>
         </div>
     )
 }
