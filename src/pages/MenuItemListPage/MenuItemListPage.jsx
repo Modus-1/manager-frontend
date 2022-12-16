@@ -25,7 +25,7 @@ export default function MenuItemListPage() {
             menuItems.map((menuItem) => (
                 <div className="row" key={menuItem.id}>
                     <span>{menuItem.name}</span>
-                    <span id="category">{categories.find(c => c.id === menuItem.categoryId).name}</span>
+                    <span id="category">{categories.find(c => c.id === menuItem.categoryId)?.name}</span>
                     <button className="controls" id="delete">&#10006;</button>
                     <button className="controls" id="info">&#129094;</button>
                 </div>
