@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  getAllIngredients,
-  getIngredientByID,
-} from "../../services/MenuService";
+import {getAllIngredients} from "../../services/MenuService";
 import "./IngredientListPage.css";
 
 export default function IngredientListPage() {
