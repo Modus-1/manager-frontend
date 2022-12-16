@@ -5,6 +5,11 @@
     padding: 1em;
     display: flex;
     flex-direction: column;
+    gap: 1em;
+}
+
+.single-item-container {
+    width: 100%;
 }
 
 .row {
