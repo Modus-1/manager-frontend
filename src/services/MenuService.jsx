@@ -26,4 +26,21 @@ async function getAllCategories() {
     return response.data;
 }
 
-export { getAllMenuItems, getMenuItemByID, getAllCategories }
+async function getAllIngredients(){
+    const response = await axios.get(
+        config.menuApi.baseUrl + 
+        config.menuApi.endpoints.getAllIngredients
+    );
+    return response.data;
+}
+
+async function getIngredientByID(id){
+    const response = await axios.get(
+        config.menuApi.baseUrl + 
+        config.menuApi.endpoints.getIngredientById +
+        id
+    );
+    return response.data;
+}
+
+export { getAllMenuItems, getMenuItemByID, getAllCategories, getAllIngredients, getIngredientByID }
