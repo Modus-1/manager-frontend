@@ -17,10 +17,6 @@ export default function MenuItemListPage() {
         getAllCategories().then((response) => { setCategories(response) });
     }, []);
 
-    useEffect(() => {
-        setCurrentMenuItem(currentMenuItem)
-    }, [currentMenuItem]);
-
     let closeInfo = (value) => {
         if (value === true) {
             setCurrentMenuItem({});
