@@ -1,5 +1,47 @@
 .sidebar-container {
-    display: flex;
-    width: 15em;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 15em;
+  margin-right: 2em;
+  border-right:solid 1px rgba(0, 0, 0, 0.164);
+  background: linear-gradient(180deg, rgba(47,137,255,1) 30%, rgba(255,255,255,1) 100%);
+}
+
+.sidebar-item {
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  border-bottom: solid 1px white;
+  text-decoration: none;
+  color:white;
+
+  background-color: rgb(47, 137, 255);
+}
+
+.sidebar-item:hover {
+    background-color: rgb(109, 148, 206);
+  }
+  .sidebar-item:active {
+    background-color: rgb(71, 109, 165);
+  }
+.sidebar-item-text {
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+  color: black;
 }
