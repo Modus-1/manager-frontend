@@ -4,6 +4,8 @@
         "endpoints": {
             "getAllMenuItems": "/api/MenuItem",
             "getMenuItemById": "/api/MenuItem/",
+            "getAllIngredients": "/api/Ingredient",
+            "getIngredientById": "/api/Ingredient/",
             "getAllCategories": "/api/Category"
         }
     }
