@@ -1,28 +1,44 @@
 import "./MenuItemsDetailsOverview.css";
 
-export default function MenuItemDetailsOverview(menuItem) {
+export default function MenuItemDetailsOverview(props) {
+
+    function close(value) {
+        props.onCloseButtonClick(value);
+    }
+
     return (
         <div className="details">
             <div className="detail" id="picture">
-                <img src={menuItem.iconUrl} alt={menuItem.name} />
+                <img src={props.item.iconUrl} alt={props.item.name} />
                 <label htmlFor="url">Picture URL:</label>
-                <input type="text" name="url" value={menuItem.iconUrl} disabled={true}/>
+                <input type="text" name="url" value={props.item.iconUrl} disabled={true}/>
+                <button className="edit-picture">&#128221;</button>
             </div>
             <div className="detail" id="name">
                 <label htmlFor="name">Item Name:</label>
-                <input type="text" name="name" value={menuItem.name} disabled={true}/>
+                <input type="text" name="name" value={props.item.name} disabled={true}/>
+                <button className="edit-name">&#128221;</button>
             </div>
             <div className="detail" id="short-description">
-                <label htmlFor="name">Short Description:</label>
-                <input type="text" name="name" value={menuItem.shortDescription} disabled={true}/>
+                <label htmlFor="short-desc">Short Description:</label>
+                <input type="text" name="short-desc" value={props.item.shortDescription} disabled={true}/>
+                <button className="edit-s-desc">&#128221;</button>
             </div>
             <div className="detail" id="long-description">
-                <label htmlFor="name">Long Description:</label>
-                <textarea rows="5" name="name" value={menuItem.longDescription} disabled={true}/>
+                <label htmlFor="long-desc">Long Description:</label>
+                <textarea rows="5" name="long-desc" value={props.item.longDescription} disabled={true}/>
+                <button className="edit-l-desc">&#128221;</button>
             </div>
             <div className="detail" id="price">
-                <label htmlFor="name">Long Description:</label>
-                <input type="number" name="name" value={menuItem.longDescription} disabled={true}/>
+                <label htmlFor="price">Price:</label>
+                <input type="number" inputMode="decimal" min="0" step="0.01" name="price"
+                       value={props.item.price} disabled={true}
+                />
+                <button className="edit-price">&#128221;</button>
+            </div>
+            <div className="confirmation">
+                <button id="apply">Apply</button>
+                <button id="cancel" onClick={() => close(true)}>Cancel</button>
             </div>
         </div>
     );

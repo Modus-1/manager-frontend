@@ -31,3 +31,19 @@
     aspect-ratio: 1 / 1;
     outline: 1px solid rgba(0, 0, 255, .5);
 }
+
+.detail > button {
+    background-color: rgba(0, 0, 0, .03);
+    border: none;
+    cursor: pointer;
+    height: 2.3em;
+    width: 2.3em;
+    border-radius: 50%;
+}
+
+.confirmation {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+}
