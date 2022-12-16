@@ -38,7 +38,7 @@ export default function MenuItemDetailsOverview(props) {
             </div>
             <div className="detail" id="ingredients">
                 <label htmlFor="ingredients">Ingredients:</label>
-                <select name="ingredients"> {
+                <select name="ingredients" disabled={true}> {
                     props.item.ingredients?.map((ingredient) => (
                         <option key={ingredient.ingredientId}>{ingredient.ingredientId
                             /* TODO: dit moet NAAM worden, ipv Id,
