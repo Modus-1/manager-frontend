@@ -36,6 +36,18 @@ export default function MenuItemDetailsOverview(props) {
                 />
                 <button className="edit-price">&#128221;</button>
             </div>
+            <div className="detail" id="ingredients">
+                <label htmlFor="ingredients">Ingredients:</label>
+                <select name="ingredients"> {
+                    props.item.ingredients?.map((ingredient) => (
+                        <option key={ingredient.ingredientId}>{ingredient.ingredientId
+                            /* TODO: dit moet NAAM worden, ipv Id,
+                                hier moet een andere API endpoint voor geraadpleegd worden. */}</option>
+                    ))
+                }
+                </select>
+                <button className="edit-ingredients">&#128221;</button>
+            </div>
             <div className="confirmation">
                 <button id="apply">Apply</button>
                 <button id="cancel" onClick={() => close(true)}>Cancel</button>

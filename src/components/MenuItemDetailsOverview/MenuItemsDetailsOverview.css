@@ -19,11 +19,19 @@
     margin-right: auto;
 }
 
-.detail > input, .detail > textarea {
+.detail > input, .detail > textarea, .detail > select {
     width: 50%;
     resize: none;
     font-family: inherit;
     padding-left: .5em;
+}
+
+.detail > textarea {
+    width: 50.3%;
+}
+
+.detail > select {
+    width: 51.7%;
 }
 
 .detail > img {
