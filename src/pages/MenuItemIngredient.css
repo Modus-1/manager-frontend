@@ -213,3 +213,21 @@
   text-align: center;
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+.mii-submit-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.223);
+  border: none;
+  font-size: large;
+}
+
+.mii-submit-btn:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}

@@ -6,6 +6,8 @@ import {
   getAllIngredients,
 } from "../../services/MenuService";
 
+import { v4 } from "uuid";
+
 export default function AddMenuItemPage() {
   const [categoryOpen, setCategoryOpen] = React.useState(false);
 
@@ -13,6 +15,39 @@ export default function AddMenuItemPage() {
   const [categories, setCategories] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+
+  function submitMenuItem() {
+    console.log("Submitted menu item");
+    let name = document.getElementById("name").value;
+    let price = document.getElementById("price").value;
+    let desc = document.getElementById("desc").value;
+    let ldesc = document.getElementById("ldesc").value;
+    let iurl = document.getElementById("iurl").value;
+    let burl = document.getElementById("burl").value;
+    const id = v4();
+
+    let ingredients = selectedIngredients.map((item) => {
+      return {
+        menuItemId: id,
+        ingredientId: item.id,
+        amount: item.count,
+      };
+    });
+
+    let menuItem = {
+      id: id,
+      name: name,
+      iconUrl: iurl,
+      bannerUrl: burl,
+      longDescription: ldesc,
+      shortDescription: desc,
+      price: price,
+      categoryId: category.id,
+      ingredients: ingredients,
+    };
+
+    console.log(menuItem);
+  }
 
   function addIngredient(ingredient) {
     if (ingredient.count === undefined) {
@@ -67,27 +102,27 @@ export default function AddMenuItemPage() {
       <div className="mii-input-fields-body">
         <div className="mii-input-field">
           <label>Name: </label>
-          <input></input>
+          <input id="name"></input>
         </div>
         <div className="mii-input-field">
           <label>Price: </label>
-          <input></input>
+          <input id="price"></input>
         </div>
         <div className="mii-input-field">
           <label>Description: </label>
-          <input></input>
+          <input id="desc"></input>
         </div>
         <div className="mii-input-field">
           <label>Long description: </label>
-          <input></input>
+          <input id="ldesc"></input>
         </div>
         <div className="mii-input-field">
           <label>Icon URL: </label>
-          <input></input>
+          <input id="iurl"></input>
         </div>
         <div className="mii-input-field">
           <label>Banner URL: </label>
-          <input></input>
+          <input id="burl"></input>
         </div>
         <div className="mii-input-field">
           <label>Category: </label>
@@ -165,6 +200,9 @@ export default function AddMenuItemPage() {
           </div>
         </div>
       </div>
+      <button className="mii-submit-btn" onClick={submitMenuItem}>
+        Submit new order
+      </button>
     </div>
   );
 }
