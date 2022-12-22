@@ -6,7 +6,8 @@
       "getMenuItemById": "/api/MenuItem/",
       "getAllIngredients": "/api/Ingredient",
       "getIngredientById": "/api/Ingredient/",
-      "getAllCategories": "/api/Category"
+      "getAllCategories": "/api/Category",
+      "createMenuItem": "/api/MenuItem"
     }
   }
 }

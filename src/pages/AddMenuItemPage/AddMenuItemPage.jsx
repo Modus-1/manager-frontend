@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import {
   getAllCategories,
   getAllIngredients,
+  createMenuItem,
 } from "../../services/MenuService";
 
 import { v4 } from "uuid";
@@ -16,7 +17,7 @@ export default function AddMenuItemPage() {
   const [ingredients, setIngredients] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
-  function submitMenuItem() {
+  async function submitMenuItem() {
     console.log("Submitted menu item");
     let name = document.getElementById("name").value;
     let price = document.getElementById("price").value;
@@ -47,6 +48,8 @@ export default function AddMenuItemPage() {
     };
 
     console.log(menuItem);
+
+    await createMenuItem(menuItem);
   }
 
   function addIngredient(ingredient) {
@@ -201,7 +204,7 @@ export default function AddMenuItemPage() {
         </div>
       </div>
       <button className="mii-submit-btn" onClick={submitMenuItem}>
-        Submit new order
+        Submit new menu item
       </button>
     </div>
   );
