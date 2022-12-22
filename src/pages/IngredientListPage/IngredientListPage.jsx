@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import {getAllIngredients} from "../../services/MenuService";
-import "./IngredientListPage.css";
+import "../ListPage.css";
 
 export default function IngredientListPage() {
   const [Ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
     const fetchAllIngredients = async () => {
-      const data = await getAllIngredients();
-      return data;
+      return await getAllIngredients();
     };
     fetchAllIngredients().then((res) => {
       setIngredients(res);
@@ -16,21 +15,29 @@ export default function IngredientListPage() {
   }, []);
 
   return (
-    <table class="ingredient-list-container">
-      <tr class="row-header">
-        <th>Ingredient Name</th>
-        <th>Amount in stock</th>
-        <th>Amount in weight (kg)</th>
-        <th>Allergens</th>
-      </tr>
-      {Ingredients.map((ingredient) => (
-        <tr class="ingredient-row" key={ingredient.id}>
-          <td>{ingredient.name}</td>
-          <td>{ingredient.stock}</td>
-          <td>{ingredient.weight}</td>
-          <td>{ingredient.allergens}</td>
-        </tr>
-      ))}
-    </table>
+      <div className="main-container">
+        <div className="rows-container">
+          <div className="row header">
+            <span>Naam</span>
+            <span id="amount">Amount</span>
+            <span id="weight">Weight (kg)</span>
+            <div className="controls"></div>
+            <div className="controls"></div>
+          </div> {
+          Ingredients.map((ingredient) => (
+              <div className="row" key={ingredient.id}>
+                <span id="name">{ingredient.name}</span>
+                <span id="amount">{ingredient.stock}</span>
+                <span id="weight">{ingredient.weight}</span>
+                <button className="controls" id="delete">&#10006;</button>
+                <button className="controls"
+                        id="info"
+                        onClick={() => {}}>
+                  &#129094;
+                </button>
+              </div>
+          ))}
+        </div>
+      </div>
   );
 }
