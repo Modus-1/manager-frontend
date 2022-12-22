@@ -5,6 +5,15 @@
     padding: 1em;
     display: flex;
     flex-direction: column;
+    gap: 1em;
+}
+
+.single-item-container {
+    width: 100%;
+}
+
+.disabled {
+    display: none;
 }
 
 .row {
@@ -24,8 +33,11 @@
     margin-right: auto;
 }
 
-.row > #category {
+.row > #category,
+.row > #amount,
+.row > #weight {
     text-align: right;
+    min-width: 6em;
 }
 
 .row > .controls {
