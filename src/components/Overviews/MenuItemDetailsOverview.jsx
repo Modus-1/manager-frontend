@@ -1,4 +1,4 @@
-import "./MenuItemsDetailsOverview.css";
+import "./DetailsOverview.css";
 
 export default function MenuItemDetailsOverview(props) {
 
