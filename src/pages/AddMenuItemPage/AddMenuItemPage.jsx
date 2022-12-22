@@ -50,6 +50,8 @@ export default function AddMenuItemPage() {
     console.log(menuItem);
 
     await createMenuItem(menuItem);
+
+    window.location.href = "/menu-item-list";
   }
 
   function addIngredient(ingredient) {
