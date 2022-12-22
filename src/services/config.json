@@ -1,12 +1,12 @@
 {
-    "menuApi": {
-        "baseUrl": "https://localhost:44394",
-        "endpoints": {
-            "getAllMenuItems": "/api/MenuItem",
-            "getMenuItemById": "/api/MenuItem/",
-            "getAllIngredients": "/api/Ingredient",
-            "getIngredientById": "/api/Ingredient/",
-            "getAllCategories": "/api/Category"
-        }
+  "menuApi": {
+    "baseUrl": "https://localhost:7286",
+    "endpoints": {
+      "getAllMenuItems": "/api/MenuItem",
+      "getMenuItemById": "/api/MenuItem/",
+      "getAllIngredients": "/api/Ingredient",
+      "getIngredientById": "/api/Ingredient/",
+      "getAllCategories": "/api/Category"
     }
+  }
 }
