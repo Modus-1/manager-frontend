@@ -9,30 +9,30 @@ export default function MenuItemDetailsOverview(props) {
     return (
         <div className="details">
             <div className="detail" id="picture">
-                <img src={props.item.iconUrl} alt={props.item.name} />
+                <img src={props.item.iconUrl ?? "https://via.placeholder.com/150"} alt={props.item.name} />
                 <label htmlFor="url">Picture URL:</label>
-                <input type="text" name="url" value={props.item.iconUrl} disabled={true}/>
+                <input type="text" name="url" value={props.item.iconUrl ?? "unknown"} disabled={true}/>
                 <button className="edit-picture">&#128221;</button>
             </div>
             <div className="detail" id="name">
                 <label htmlFor="name">Item Name:</label>
-                <input type="text" name="name" value={props.item.name} disabled={true}/>
+                <input type="text" name="name" value={props.item.name ?? "unknown"} disabled={true}/>
                 <button className="edit-name">&#128221;</button>
             </div>
             <div className="detail" id="short-description">
                 <label htmlFor="short-desc">Short Description:</label>
-                <input type="text" name="short-desc" value={props.item.shortDescription} disabled={true}/>
+                <input type="text" name="short-desc" value={props.item.shortDescription ?? "unknown"} disabled={true}/>
                 <button className="edit-s-desc">&#128221;</button>
             </div>
             <div className="detail" id="long-description">
                 <label htmlFor="long-desc">Long Description:</label>
-                <textarea rows="5" name="long-desc" value={props.item.longDescription} disabled={true}/>
+                <textarea rows="5" name="long-desc" value={props.item.longDescription ?? "unknown"} disabled={true}/>
                 <button className="edit-l-desc">&#128221;</button>
             </div>
             <div className="detail" id="price">
                 <label htmlFor="price">Price:</label>
                 <input type="number" inputMode="decimal" min="0" step="0.01" name="price"
-                       value={props.item.price} disabled={true}
+                       value={props.item.price ?? "unknown"} disabled={true}
                 />
                 <button className="edit-price">&#128221;</button>
             </div>
