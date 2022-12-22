@@ -1,4 +1,4 @@
-import "./MenuItemListPage.css";
+import "../ListPage.css";
 import {useEffect, useState} from "react";
 import {getAllCategories, getAllMenuItems} from "../../services/MenuService";
 import MenuItemDetailsOverview from "../../components/MenuItemDetailsOverview/MenuItemDetailsOverview";
