@@ -1,7 +1,7 @@
 import "../ListPage.css";
 import {useEffect, useState} from "react";
 import {getAllCategories, getAllMenuItems} from "../../services/MenuService";
-import MenuItemDetailsOverview from "../../components/MenuItemDetailsOverview/MenuItemDetailsOverview";
+import MenuItemDetailsOverview from "../../components/Overviews/MenuItemDetailsOverview";
 
 export default function MenuItemListPage() {
 
@@ -54,7 +54,6 @@ export default function MenuItemListPage() {
                     </div>
                 ))}
             </div>
-
         </div>
     );
 }
