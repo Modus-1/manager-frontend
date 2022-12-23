@@ -10,24 +10,24 @@ export default function IngredientsDetailsOverview(props) {
         <div className="details">
             <div className="detail" id="name">
                 <label htmlFor="name">Ingredient Name:</label>
-                <input type="text" name="name" value={props.ingredient.name} disabled={true}/>
+                <input type="text" name="name" value={props.ingredient.name ?? "unknown"} disabled={true}/>
                 <button className="edit-name">&#128221;</button>
             </div>
             <div className="detail" id="amount">
                 <label htmlFor="amount">Amount:</label>
-                <input type="number" min="0" name="amount" value={props.ingredient.stock} disabled={true}/>
+                <input type="number" min="0" name="amount" value={props.ingredient.stock ?? "unknown"} disabled={true}/>
                 <button className="edit-amount">&#128221;</button>
             </div>
             <div className="detail" id="weight">
                 <label htmlFor="weight">Weight:</label>
                 <input type="number" inputMode="decimal" min="0" step="0.001" name="weight"
-                       value={props.ingredient.weight} disabled={true}
+                       value={props.ingredient.weight ?? "unknown"} disabled={true}
                 />
                 <button className="edit-weight">&#128221;</button>
             </div>
             <div className="detail" id="allergens">
                 <label htmlFor="allergens">Allergens:</label>
-                <textarea rows="5" name="allergens" value={props.ingredient.allergens} disabled={true}/>
+                <textarea rows="5" name="allergens" value={props.ingredient.allergens ?? "unknown"} disabled={true}/>
                 <button className="edit-allergens">&#128221;</button>
             </div>
             <div className="confirmation">

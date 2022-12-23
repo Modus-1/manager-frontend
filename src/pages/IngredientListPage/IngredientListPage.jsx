@@ -42,9 +42,9 @@ export default function IngredientListPage() {
           </div> {
           Ingredients.map((ingredient) => (
               <div className="row" key={ingredient.id}>
-                <span id="name">{ingredient.name}</span>
-                <span id="amount">{ingredient.stock}</span>
-                <span id="weight">{ingredient.weight}</span>
+                <span id="name">{ingredient.name ?? "unknown"}</span>
+                <span id="amount">{ingredient.stock ?? "unknown"}</span>
+                <span id="weight">{ingredient.weight ?? "unknown"}</span>
                 <button className="controls" id="delete">&#10006;</button>
                 <button className="controls"
                         id="info"
