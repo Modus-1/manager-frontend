@@ -1,0 +1,233 @@
+.mii-page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.mii-input-fields-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: fit-content;
+  gap: 10px;
+  padding: 10px;
+  margin: 20px;
+  /* border: 2px dashed black; */
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.mii-input-field {
+  /* background-color: hotpink; */
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  font-size: large;
+  margin: 10px;
+  /* border: 2px dashed black; */
+  font-weight: bold;
+}
+
+.mii-input-field input,
+.mii-dropdown {
+  font-size: large;
+  padding: 5px;
+  border-radius: 3px;
+  border: 2px solid black;
+  background-color: white;
+  width: 300px;
+}
+
+.mii-dropdown {
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+}
+
+.mii-dropdown-content button {
+  border: none;
+  aspect-ratio: 1;
+  height: 100%;
+  border-left: 2px solid black;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mii-dropdown-content {
+  display: flex;
+  flex-direction: row;
+  font-weight: normal;
+}
+
+.mii-dropdown-content label {
+  flex-grow: 1;
+  text-align: left;
+  padding: 5px;
+}
+
+.mii-input-field input:focus {
+  outline: none;
+  border: 2px solid rgb(87, 193, 255);
+}
+
+.mii-input-field label {
+  text-align: left;
+}
+
+.mii-dropdown-dropdown-container {
+  position: relative;
+  width: 0px;
+}
+
+.mii-dropdown-dropdown {
+  position: absolute;
+  width: 300px;
+  background-color: white;
+  outline: 2px solid black;
+  outline-offset: 0px;
+}
+
+.mii-dropdown-dropdown-item:hover {
+  background-color: rgb(87, 193, 255);
+  color: white;
+  cursor: pointer;
+}
+
+.mii-ingredients-body {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  padding: 10px;
+  margin: 20px;
+  font-size: large;
+  border-radius: 5px;
+}
+
+.mii-ingredients-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mii-ingredients-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px;
+}
+
+.mii-ingredient-list-item {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  gap: 10px;
+}
+
+.mii-ingredient-add button {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 2em;
+}
+
+.mii-ingredient-add button:hover {
+  color: rgb(87, 193, 255);
+  cursor: pointer;
+}
+
+.mii-ingredient-add {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.mii-ingredient-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mii-ingredient-add-popup {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 0 100000px rgba(0, 0, 0, 0.5);
+  min-width: 500px;
+  gap: 10px;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.mii-ingredient-list-item label {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.mii-ingredient-list-item button {
+  border: none;
+}
+
+.mii-ingredient-count {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mii-ingredient-count button {
+  background-color: transparent;
+  font-size: 1.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  padding: 13px;
+}
+
+.mii-ingredient-count button:hover,
+.mii-ingredient-count button:active {
+  color: rgb(87, 193, 255);
+  cursor: pointer;
+}
+
+.mii-ingredient-count-number {
+  width: 40px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.mii-submit-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.223);
+  border: none;
+  font-size: large;
+}
+
+.mii-submit-btn:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
