@@ -1,6 +1,7 @@
 import axios from "axios";
 const config = require("./config.json");
 
+//MenuItem Endpoints
 async function getAllMenuItems() {
   const response = await axios.get(
     config.menuApi.baseUrl + config.menuApi.endpoints.getAllMenuItems
@@ -15,6 +16,15 @@ async function getMenuItemByID(id) {
   return response.data;
 }
 
+async function createMenuItem(menuItem) {
+  const response = await axios.post(
+    config.menuApi.baseUrl + config.menuApi.endpoints.createMenuItem,
+    menuItem
+  );
+  return response.data;
+}
+
+//Categorie Endpoints
 async function getAllCategories() {
   const response = await axios.get(
     config.menuApi.baseUrl + config.menuApi.endpoints.getAllCategories
@@ -22,6 +32,7 @@ async function getAllCategories() {
   return response.data;
 }
 
+//Ingredient Endpoints
 async function getAllIngredients() {
   const response = await axios.get(
     config.menuApi.baseUrl + config.menuApi.endpoints.getAllIngredients
@@ -36,13 +47,14 @@ async function getIngredientByID(id) {
   return response.data;
 }
 
-async function createMenuItem(menuItem) {
-  const response = await axios.post(
-    config.menuApi.baseUrl + config.menuApi.endpoints.createMenuItem,
-    menuItem
+async function updateIngredient(ingredient){
+  const response = await axios.patch(
+    config.menuApi.baseUrl + config.menuApi.endpoints.updateIngredient, ingredient
   );
   return response.data;
 }
+
+
 
 export {
   getAllMenuItems,
@@ -51,4 +63,5 @@ export {
   getAllIngredients,
   getIngredientByID,
   createMenuItem,
+  updateIngredient,
 };
