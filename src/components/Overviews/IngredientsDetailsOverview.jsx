@@ -1,65 +1,106 @@
 import "./DetailsOverview.css";
-import {updateIngredient} from "../../services/MenuService"
+import { updateIngredient } from "../../services/MenuService";
+import Popup from "reactjs-popup";
 import { useEffect, useState } from "react";
 
 export default function IngredientsDetailsOverview(props) {
+  function close(value) {
+    props.onCloseButtonClick(value);
+  }
 
-    function close(value) {
-        props.onCloseButtonClick(value);
-    }
+  useEffect(() => {}, []);
 
-    //The ingredient that changes when the user updates values in the form
-    const [newIngredient, setNewIngredient] = useState(props.ingredient);
+  async function updateSelectedIngredient() {
+    let name = document.getElementById("name").value;
+    let stock = document.getElementById("stock").value;
+    let weight = document.getElementById("weight").value;
+    let allergens = document.getElementById("allergens").value;
+    console.log(document.getElementById("name").value);
 
-    //Applies newIngredient as the actual 
-    async function updateNewIngredient(){
-        await updateIngredient()
-    }
+    let ingredient = {
+      id: props.ingredient.id,
+      name: name,
+      stock: Number(stock),
+      weight: Number(weight),
+      allergens: allergens,
+    };
 
-    useEffect(() => {
-        testEndpoint();
-      }, []);
+    console.log(ingredient);
+    await updateIngredient(ingredient);
 
-    async function testEndpoint(){
-        const ingredient = {
-            id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            name: "HAHAHAHAH HET WERKT JAJA",
-            stock: 0,
-            weight: 0,
-            allergens: "HAHA HET WERKT"
-          }
-        await updateIngredient(ingredient)
-    }
+    window.location.href = "/ingredient-list";
+  }
 
-    return (
-        <div className="details">
-            {console.log(newIngredient)}
-            <div className="detail" id="name">
-                <label htmlFor="name">Ingredient Name:</label>
-                <input type="text" name="name" value={props.ingredient.name ?? "unknown"} disabled={true}/>
-                <button className="edit-name">&#128221;</button>
+  return (
+    <div className="details">
+      <div className="detail">
+        <label htmlFor="name">Ingredient Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          defaultValue={props.ingredient.name}
+        />
+      </div>
+      <div className="detail">
+        <label htmlFor="amount">Amount:</label>
+        <input
+          type="number"
+          id="stock"
+          min="0"
+          name="amount"
+          defaultValue={props.ingredient.stock}
+        />
+      </div>
+      <div className="detail">
+        <label htmlFor="weight">Weight:</label>
+        <input
+          type="number"
+          id="weight"
+          inputMode="decimal"
+          min="0"
+          step="0.001"
+          name="weight"
+          defaultValue={props.ingredient.weight}
+        />
+      </div>
+      <div className="detail">
+        <label htmlFor="allergens">Allergens:</label>
+        <textarea
+          id="allergens"
+          rows="5"
+          name="allergens"
+          defaultValue={props.ingredient.allergens}
+        />
+      </div>
+      <div className="confirmation">
+        {/* <button id="apply" onClick={() => updateSelectedIngredient()}>
+          Apply
+        </button> */}
+
+        <Popup trigger={<button id="apply">Apply</button>} modal={true}>
+          {(close) => (
+            <div className="confirmation-popup">
+              <p>Are you sure you want to update this ingredient?</p>
+              <button onClick={() => updateSelectedIngredient()}>
+                Confirm
+              </button>
+
+              <button
+                className="closePopupButton"
+                onClick={() => {
+                  close();
+                }}
+              >
+                Cancel
+              </button>
             </div>
-            <div className="detail" id="amount">
-                <label htmlFor="amount">Amount:</label>
-                <input type="number" min="0" name="amount" value={props.ingredient.stock ?? "unknown"} disabled={true}/>
-                <button className="edit-amount">&#128221;</button>
-            </div>
-            <div className="detail" id="weight">
-                <label htmlFor="weight">Weight:</label>
-                <input type="number" inputMode="decimal" min="0" step="0.001" name="weight"
-                       value={props.ingredient.weight ?? "unknown"} disabled={true}
-                />
-                <button className="edit-weight">&#128221;</button>
-            </div>
-            <div className="detail" id="allergens">
-                <label htmlFor="allergens">Allergens:</label>
-                <textarea rows="5" name="allergens" value={props.ingredient.allergens ?? "unknown"} disabled={true}/>
-                <button className="edit-allergens">&#128221;</button>
-            </div>
-            <div className="confirmation">
-                <button id="apply">Apply</button>
-                <button id="cancel" onClick={() => close(true)}>Cancel</button>
-            </div>
-        </div>
-    );
+          )}
+        </Popup>
+        <button id="cancel" onClick={() => close(true)}>
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
 }

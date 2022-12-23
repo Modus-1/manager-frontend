@@ -1,57 +1,74 @@
 .details {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5em;
-    border: 1px solid rgb(47, 137, 255);
-    border-radius: .1em;
-    gap: 0.5em;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  border: 1px solid rgb(47, 137, 255);
+  border-radius: 0.1em;
+  gap: 0.5em;
 }
 
 .detail {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
 }
 
 .detail > label {
-    margin-right: auto;
+  margin-right: auto;
 }
 
-.detail > input, .detail > textarea, .detail > select {
-    width: 50%;
-    resize: none;
-    font-family: inherit;
-    padding-left: .5em;
+.detail > input,
+.detail > textarea,
+.detail > select {
+  width: 50%;
+  resize: none;
+  font-family: inherit;
+  padding-left: 0.5em;
 }
 
 .detail > textarea {
-    width: 50.3%;
+  width: 50.3%;
 }
 
 .detail > select {
-    width: 51.7%;
+  width: 51.7%;
 }
 
 .detail > img {
-    width: 5em;
-    aspect-ratio: 1 / 1;
-    outline: 1px solid rgba(0, 0, 255, .5);
+  width: 5em;
+  aspect-ratio: 1 / 1;
+  outline: 1px solid rgba(0, 0, 255, 0.5);
 }
 
 .detail > button {
-    background-color: rgba(0, 0, 0, .03);
-    border: none;
-    cursor: pointer;
-    height: 2.3em;
-    width: 2.3em;
-    border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: none;
+  cursor: pointer;
+  height: 2.3em;
+  width: 2.3em;
+  border-radius: 50%;
 }
 
 .confirmation {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: center;
+}
+
+.confirmation-popup {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 0 100000px rgba(0, 0, 0, 0.5);
+  width: fit-content;
+  gap: 10px;
+  overflow-y: auto;
+  height: fit-content;
+  text-align: center;
 }
