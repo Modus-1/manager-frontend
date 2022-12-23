@@ -46,9 +46,6 @@ export default function AddMenuItemPage() {
       categoryId: category.id,
       ingredients: ingredients,
     };
-
-    console.log(menuItem);
-
     await createMenuItem(menuItem);
 
     window.location.href = "/menu-item-list";

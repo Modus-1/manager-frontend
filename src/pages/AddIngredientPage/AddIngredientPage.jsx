@@ -1,6 +1,5 @@
 import "../MenuItemIngredient.css";
-import Popup from "reactjs-popup";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { createIngredient } from "../../services/MenuService";
 
 export default function AddIngredientPage() {
@@ -17,9 +16,6 @@ export default function AddIngredientPage() {
       weight: Number(weight),
       allergens: allergens,
     };
-
-    console.log(ingredient);
-
     await createIngredient(ingredient);
 
     window.location.href = "/ingredient-list";
