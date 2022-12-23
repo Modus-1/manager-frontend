@@ -4,7 +4,6 @@ import { createIngredient } from "../../services/MenuService";
 
 export default function AddIngredientPage() {
   async function submitIngredient() {
-    console.log("Submitted menu item");
     let name = document.getElementById("name").value;
     let stock = document.getElementById("stock").value;
     let weight = document.getElementById("weight").value;
