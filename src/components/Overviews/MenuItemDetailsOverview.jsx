@@ -1,11 +1,59 @@
 import "./DetailsOverview.css";
+import React, { useEffect, useState } from "react";
+import { getAllCategories } from "../../services/MenuService";
 
 export default function MenuItemDetailsOverview(props) {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getAllCategories().then((res) => {
+      setCategories(res);
+    });
+  }, []);
+
+  const [category, setCategory] = useState(props.item.categoryId);
+
   function close(value) {
     props.onCloseButtonClick(value);
   }
 
-  async function updateMenuItem() {}
+  function getCategoryNameById(id) {
+    const category = categories.find((category) => category.id === id);
+    return category ? category.name : null;
+  }
+
+  async function updateMenuItem() {
+    let id = props.menuItem.id;
+    let name = document.getElementById("name").value;
+    let price = document.getElementById("price").value;
+    let desc = document.getElementById("desc").value;
+    let ldesc = document.getElementById("ldesc").value;
+    let iurl = document.getElementById("iurl").value;
+    let burl = document.getElementById("burl").value;
+
+    // let ingredients = selectedIngredients.map((item) => {
+    //   return {
+    //     menuItemId: id,
+    //     ingredientId: item.id,
+    //     amount: item.count,
+    //   };
+    // });
+
+    let menuItem = {
+      id: id,
+      name: name,
+      iconUrl: iurl,
+      bannerUrl: burl,
+      longDescription: ldesc,
+      shortDescription: desc,
+      price: price,
+      categoryId: category.id,
+      // ingredients: ingredients,
+    };
+    await updateMenuItem(menuItem);
+
+    window.location.href = "/menu-item-list";
+  }
 
   return (
     <div className="details">
@@ -18,8 +66,8 @@ export default function MenuItemDetailsOverview(props) {
         <input
           type="text"
           name="url"
-          value={props.item.iconUrl ?? "unknown"}
-          disabled={true}
+          defaultValue={props.item.iconUrl}
+          // disabled={true}
         />
         <button className="edit-picture">&#128221;</button>
       </div>
@@ -29,8 +77,8 @@ export default function MenuItemDetailsOverview(props) {
           id="name"
           type="text"
           name="name"
-          value={props.item.name ?? "unknown"}
-          disabled={true}
+          defaultValue={props.item.name}
+          // disabled={true}
         />
         <button className="edit-name">&#128221;</button>
       </div>
@@ -40,8 +88,8 @@ export default function MenuItemDetailsOverview(props) {
           id="short-description"
           type="text"
           name="short-desc"
-          value={props.item.shortDescription ?? "unknown"}
-          disabled={true}
+          defaultValue={props.item.shortDescription}
+          // disabled={true}
         />
         <button className="edit-s-desc">&#128221;</button>
       </div>
@@ -51,8 +99,8 @@ export default function MenuItemDetailsOverview(props) {
           id="long-description"
           rows="5"
           name="long-desc"
-          value={props.item.longDescription ?? "unknown"}
-          disabled={true}
+          defaultValue={props.item.longDescription}
+          // disabled={true}
         />
         <button className="edit-l-desc">&#128221;</button>
       </div>
@@ -65,19 +113,23 @@ export default function MenuItemDetailsOverview(props) {
           min="0"
           step="0.01"
           name="price"
-          value={props.item.price ?? "unknown"}
-          disabled={true}
+          defaultValue={props.item.price}
+          // disabled={true}
         />
         <button className="edit-price">&#128221;</button>
       </div>
-      <div className="detail" id="ingredients">
-        <label htmlFor="ingredients">Ingredients:</label>
-        <select name="ingredients" disabled={true}>
-          {" "}
-          {props.item.ingredients?.map((ingredient) => (
-            <option key={ingredient.ingredientId}>
+      <div className="detail" id="categories">
+        <label htmlFor="categories">Category:</label>
+        <select
+          name="ingredients"
+          value={getCategoryNameById(props.item.categoryId)}
+          onChange={(setCategory.bind = this)}
+        >
+          {""}
+          {categories?.map((category) => (
+            <option key={category.id}>
               {
-                ingredient.ingredientId
+                category.name
                 /* TODO: dit moet NAAM worden, ipv Id,
                                 hier moet een andere API endpoint voor geraadpleegd worden. */
               }
