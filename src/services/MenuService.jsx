@@ -44,6 +44,14 @@ async function createMenuItem(menuItem) {
   return response.data;
 }
 
+async function createIngredient(ingredient) {
+  const response = await axios.post(
+    config.menuApi.baseUrl + config.menuApi.endpoints.createIngredient,
+    ingredient
+  );
+  return response.data;
+}
+
 export {
   getAllMenuItems,
   getMenuItemByID,
@@ -51,4 +59,5 @@ export {
   getAllIngredients,
   getIngredientByID,
   createMenuItem,
+  createIngredient,
 };
