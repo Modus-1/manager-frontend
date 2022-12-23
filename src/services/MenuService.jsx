@@ -47,14 +47,21 @@ async function getIngredientByID(id) {
   return response.data;
 }
 
-async function updateIngredient(ingredient){
+async function updateIngredient(ingredient) {
   const response = await axios.patch(
-    config.menuApi.baseUrl + config.menuApi.endpoints.updateIngredient, ingredient
+    config.menuApi.baseUrl + config.menuApi.endpoints.updateIngredient,
+    ingredient
   );
   return response.data;
 }
 
-
+async function createIngredient(ingredient) {
+  const response = await axios.post(
+    config.menuApi.baseUrl + config.menuApi.endpoints.createIngredient,
+    ingredient
+  );
+  return response.data;
+}
 
 export {
   getAllMenuItems,
@@ -64,4 +71,5 @@ export {
   getIngredientByID,
   createMenuItem,
   updateIngredient,
+  createIngredient,
 };

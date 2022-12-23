@@ -8,7 +8,8 @@
       "getIngredientById": "/api/Ingredient/",
       "getAllCategories": "/api/Category",
       "createMenuItem": "/api/MenuItem",
-      "updateIngredient": "/api/Ingredient"
+      "updateIngredient": "/api/Ingredient",
+      "createIngredient": "/api/Ingredient"
     }
   }
 }
