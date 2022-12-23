@@ -18,7 +18,6 @@ export default function AddMenuItemPage() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
   async function submitMenuItem() {
-    console.log("Submitted menu item");
     let name = document.getElementById("name").value;
     let price = document.getElementById("price").value;
     let desc = document.getElementById("desc").value;
@@ -46,9 +45,6 @@ export default function AddMenuItemPage() {
       categoryId: category.id,
       ingredients: ingredients,
     };
-
-    console.log(menuItem);
-
     await createMenuItem(menuItem);
 
     window.location.href = "/menu-item-list";
