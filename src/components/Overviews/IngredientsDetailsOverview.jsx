@@ -1,14 +1,11 @@
 import "./DetailsOverview.css";
 import { updateIngredient } from "../../services/MenuService";
 import Popup from "reactjs-popup";
-import { useEffect, useState } from "react";
 
 export default function IngredientsDetailsOverview(props) {
   function close(value) {
     props.onCloseButtonClick(value);
   }
-
-  useEffect(() => {}, []);
 
   async function updateSelectedIngredient() {
     let name = document.getElementById("name").value;
@@ -74,10 +71,6 @@ export default function IngredientsDetailsOverview(props) {
         />
       </div>
       <div className="confirmation">
-        {/* <button id="apply" onClick={() => updateSelectedIngredient()}>
-          Apply
-        </button> */}
-
         <Popup trigger={<button id="apply">Apply</button>} modal={true}>
           {(close) => (
             <div className="confirmation-popup">
