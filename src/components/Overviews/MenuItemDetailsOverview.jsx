@@ -1,18 +1,30 @@
 import "./DetailsOverview.css";
 import React, { useEffect, useState } from "react";
 import { getAllCategories } from "../../services/MenuService";
+import Select from "react-select";
 
 export default function MenuItemDetailsOverview(props) {
   const [categories, setCategories] = useState([]);
+  const [options, setOptions] = useState([]);
 
   useEffect(() => {
     getAllCategories().then((res) => {
       setCategories(res);
+      const o = getOptions(res);
+      setOptions(o);
     });
   }, []);
 
-  const [category, setCategory] = useState(props.item.categoryId);
+  function getOptions(res) {
+    const result = [];
+    res.map((category) => {
+      result.push({ value: category.id, label: category.name });
+    });
 
+    return result;
+  }
+
+  const [categoryId, setCategoryId] = useState(props.item.categoryId);
   function close(value) {
     props.onCloseButtonClick(value);
   }
@@ -47,7 +59,7 @@ export default function MenuItemDetailsOverview(props) {
       longDescription: ldesc,
       shortDescription: desc,
       price: price,
-      categoryId: category.id,
+      categoryId: categoryId,
       // ingredients: ingredients,
     };
     await updateMenuItem(menuItem);
@@ -120,22 +132,12 @@ export default function MenuItemDetailsOverview(props) {
       </div>
       <div className="detail" id="categories">
         <label htmlFor="categories">Category:</label>
-        <select
-          name="ingredients"
-          value={getCategoryNameById(props.item.categoryId)}
-          onChange={(setCategory.bind = this)}
-        >
-          {""}
-          {categories?.map((category) => (
-            <option key={category.id}>
-              {
-                category.name
-                /* TODO: dit moet NAAM worden, ipv Id,
-                                hier moet een andere API endpoint voor geraadpleegd worden. */
-              }
-            </option>
-          ))}
-        </select>
+        <span>(Currently: {getCategoryNameById(props.item.categoryId)})</span>
+        <Select
+          value={options.value}
+          options={options}
+          defaultValue={options[0]}
+        />
         <button className="edit-ingredients">&#128221;</button>
       </div>
       <div className="confirmation">
