@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+[![MODUS](https://img.shields.io/badge/MODUS-ASSUMPTION-orange?style=for-the-badge)](https://github.com/Modus-1) [![React](https://img.shields.io/badge/React-38d3fa?style=for-the-badge&logo=react&logoColor=white&messageColor=white)](https://reactjs.org/) [![node build status](https://img.shields.io/github/actions/workflow/status/modus-1/manager-frontend/node.js.yml?branch=main&label=Node%20build&logo=Node.js&logoColor=white&style=for-the-badge)](https://github.com/Modus-1/manager-frontend/actions?query=branch%3Amain) [![sonarcloud status](https://img.shields.io/sonar/quality_gate/Modus-1_manager-frontend/main?logo=sonarcloud&server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge)](https://sonarcloud.io/summary/overall?id=Modus-1_manager-frontend)<br /> [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Modus-1_manager-frontend&metric=ncloc)](https://sonarcloud.io/summary/overall?id=Modus-1_manager-frontend) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Modus-1_manager-frontend&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=Modus-1_manager-frontend) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Modus-1_manager-frontend&metric=security_rating)](https://sonarcloud.io/summary/overall?id=Modus-1_manager-frontend) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Modus-1_manager-frontend&metric=reliability_rating)](https://sonarcloud.io/summary/overall?id=Modus-1_manager-frontend) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Modus-1_manager-frontend&metric=code_smells)](https://sonarcloud.io/summary/overall?id=Modus-1_manager-frontend)
+
+
+# Getting Started with the Manager Frontend
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -9,7 +12,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3002](http://localhost:3002) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
