@@ -24,7 +24,15 @@ async function createMenuItem(menuItem) {
   return response.data;
 }
 
-//Categorie Endpoints
+async function updateMenuItem(menuItem) {
+  const response = await axios.patch(
+    config.menuApi.baseUrl + config.menuApi.endpoints.updateMenuItem,
+    menuItem
+  );
+  return response.data;
+}
+
+//Category Endpoints
 async function getAllCategories() {
   const response = await axios.get(
     config.menuApi.baseUrl + config.menuApi.endpoints.getAllCategories
@@ -71,5 +79,6 @@ export {
   getIngredientByID,
   createMenuItem,
   updateIngredient,
+  updateMenuItem,
   createIngredient,
 };

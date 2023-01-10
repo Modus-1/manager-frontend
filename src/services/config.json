@@ -9,6 +9,7 @@
       "getAllCategories": "/api/Category",
       "createMenuItem": "/api/MenuItem",
       "updateIngredient": "/api/Ingredient",
+      "updateMenuItem": "/api/MenuItem",
       "createIngredient": "/api/Ingredient"
     }
   }

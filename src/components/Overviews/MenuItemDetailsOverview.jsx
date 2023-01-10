@@ -1,11 +1,14 @@
 import "./DetailsOverview.css";
+import { updateMenuItem } from "../../services/MenuService";
 import React, { useEffect, useState } from "react";
 import { getAllCategories } from "../../services/MenuService";
 import Select from "react-select";
+import Popup from "reactjs-popup";
 
 export default function MenuItemDetailsOverview(props) {
   const [categories, setCategories] = useState([]);
   const [options, setOptions] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState([]);
 
   useEffect(() => {
     getAllCategories().then((res) => {
@@ -34,14 +37,17 @@ export default function MenuItemDetailsOverview(props) {
     return category ? category.name : null;
   }
 
-  async function updateMenuItem() {
-    let id = props.menuItem.id;
+  async function updateSelectedMenuItem() {
+    let id = props.item.id;
+
     let name = document.getElementById("name").value;
     let price = document.getElementById("price").value;
-    let desc = document.getElementById("desc").value;
-    let ldesc = document.getElementById("ldesc").value;
+    let sDesc = document.getElementById("short-description").value;
+    let lDesc = document.getElementById("long-description").value;
     let iurl = document.getElementById("iurl").value;
-    let burl = document.getElementById("burl").value;
+    // let burl = document.getElementById("burl").value;
+    let burl = props.item.bannerUrl;
+    let category = selectedCategory;
 
     // let ingredients = selectedIngredients.map((item) => {
     //   return {
@@ -51,20 +57,25 @@ export default function MenuItemDetailsOverview(props) {
     //   };
     // });
 
+    let ingredients = props.item.ingredients;
+
+    console.log(category);
+
     let menuItem = {
       id: id,
       name: name,
       iconUrl: iurl,
       bannerUrl: burl,
-      longDescription: ldesc,
-      shortDescription: desc,
+      longDescription: lDesc,
+      shortDescription: sDesc,
       price: price,
-      categoryId: categoryId,
-      // ingredients: ingredients,
+      categoryId: category,
+      ingredients: ingredients,
     };
+    console.log(menuItem);
     await updateMenuItem(menuItem);
 
-    window.location.href = "/menu-item-list";
+    //window.location.href = "/menu-item-list";
   }
 
   return (
@@ -76,6 +87,7 @@ export default function MenuItemDetailsOverview(props) {
         />
         <label htmlFor="url">Picture URL:</label>
         <input
+          id="iurl"
           type="text"
           name="url"
           defaultValue={props.item.iconUrl}
@@ -134,14 +146,39 @@ export default function MenuItemDetailsOverview(props) {
         <label htmlFor="categories">Category:</label>
         <span>(Currently: {getCategoryNameById(props.item.categoryId)})</span>
         <Select
+          id="category"
           value={options.value}
           options={options}
           defaultValue={options[0]}
+          // onClick={setSelectedCategory(options.value)}
         />
         <button className="edit-ingredients">&#128221;</button>
       </div>
       <div className="confirmation">
-        <button id="apply">Apply</button>
+        <Popup
+          trigger={
+            <button id="apply" disabled={true}>
+              Apply
+            </button>
+          }
+          modal={true}
+        >
+          {(close) => (
+            <div className="confirmation-popup">
+              <p>Are you sure you want to update this menu item?</p>
+              <button onClick={() => updateSelectedMenuItem()}>Confirm</button>
+
+              <button
+                className="closePopupButton"
+                onClick={() => {
+                  close();
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          )}
+        </Popup>
         <button id="cancel" onClick={() => close(true)}>
           Cancel
         </button>
